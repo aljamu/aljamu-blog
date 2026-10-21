@@ -77,7 +77,7 @@ $twig = new Environment($loader, [
     'debug' => $config->isDebug(),
     'auto_reload' => $config->isDebug(),
 ]);
-
+$config->isDebug() ? $twig->addExtension(new \Twig\Extension\DebugExtension()) : "";
 $twig->addGlobal('csp_nonce', $nonce);
 $twig->addGlobal('app_env', $config->env());
 // Always trailing slash so {{ base_url }}posts joins correctly under subpaths

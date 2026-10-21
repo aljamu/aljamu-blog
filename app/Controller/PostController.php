@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Post;
+use App\Model\User;
 use flight\database\SimplePdo;
 use flight\Engine;
 
@@ -33,9 +34,12 @@ class PostController
     {
         $post = new Post($this->db);
         $posts = $post->orderByColumn('id', 'DESC')->findAll();
+        $user = new User($this->db);
+        $users = $user->with('posts')->orderByColumn('id', 'DESC')->findAll();
 
         $this->app->render('posts/index', [
             'posts' => $posts,
+            'users' => $users,
         ]);
     }
 
