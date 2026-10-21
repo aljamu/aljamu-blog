@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Posts — FlightPHP Skeleton{% endblock %}
+{% block body %}
+
+<div class="card">
+    <h1>Users</h1>
+    {% if users is empty %}
+        <p>No user yet.</p>
+    {% else %}
+        <ul class="posts">
+            {% for user in users %}
+                <li>
+                    <p>{{ user.id }}. {{ user.username }}</p>
+                    
+                    {% for post in user.posts %}
+                        <div style="border: white solid 2px">
+                            <p>{{ post.title }}</p>
+                            <p>{{ post.content }}</p>
+                        </div>
+                    {% endfor %}
+                </li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

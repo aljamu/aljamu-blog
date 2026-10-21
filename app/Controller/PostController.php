@@ -34,12 +34,9 @@ class PostController
     {
         $post = new Post($this->db);
         $posts = $post->orderByColumn('id', 'DESC')->findAll();
-        $user = new User($this->db);
-        $users = $user->with('posts')->orderByColumn('id', 'DESC')->findAll();
 
         $this->app->render('posts/index', [
             'posts' => $posts,
-            'users' => $users,
         ]);
     }
 
@@ -49,7 +46,7 @@ class PostController
     public function show($id): void
     {
         $post = new Post($this->db);
-        $post->find((int) $id);
+        $post->with("users")->find((int) $id);
 
         if (!$post->isHydrated()) {
             $this->app->halt(404, 'Post not found');

@@ -10,6 +10,7 @@
 
 use App\Controller\HomeController;
 use App\Controller\PostController;
+use App\Controller\UserController;
 use App\Middleware\SecurityHeadersMiddleware;
 use App\Utils\DatabaseFactory;
 use flight\net\Router;
@@ -21,6 +22,9 @@ $router->group('', function (Router $router) use ($config) {
     if (DatabaseFactory::isEnabled($config)) {
         $router->get('/posts', [PostController::class, 'index']);
         $router->get('/posts/@id:[0-9]+', [PostController::class, 'show']);
+
+        $router->get('/users', [UserController::class, 'index']);
+        $router->get('/users/@id:[0-9]+', [UserController::class, 'show']);
 
         $router->group('/api', function (Router $router) {
             $router->get('/posts', [PostController::class, 'apiIndex']);
