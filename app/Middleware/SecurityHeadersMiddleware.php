@@ -38,8 +38,9 @@ class SecurityHeadersMiddleware
 
         $csp = "default-src 'self'; "
             . "script-src 'self' 'nonce-{$nonce}' 'strict-dynamic'; "
-            . "style-src {$styleSrc}; "
-            . "img-src 'self' data:;";
+            . "style-src {$styleSrc} https://fonts.googleapis.com; "
+            . "img-src 'self' data:; "
+            . "font-src 'self' https://fonts.gstatic.com;";
 
         $response = $this->app->response();
         $response->header('X-Frame-Options', 'SAMEORIGIN');

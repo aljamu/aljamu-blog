@@ -8,11 +8,7 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     {% if post.created_at %}
-    <div style="display: flex; justify-content: space-between;">
         <p class="muted">Created {{ post.created_at }}</p>
-        <p class="muted">Written by {{ post.users.username|capitalize }}</p>
-    </div>
-
     {% endif %}
 </div>
 {% endblock %}

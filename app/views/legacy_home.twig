@@ -1,0 +1,96 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+    <style nonce="{{ csp_nonce }}">
+        section#welcome_hero {
+            padding: 85px 0px 10px 0px;
+            margin: 0 auto;
+            max-width: var(--max-width);
+        }
+
+        .section_wrapper{
+            padding: 75px 0;
+            margin: 0 auto;
+            max-width: var(--max-width);
+        }
+
+        #welcome_hero h1, #welcome_hero h2 {
+            text-align: center;
+        }
+        #welcome_hero h1 {
+            font-size: xx-large;
+            font-weight: 400;
+        }
+        #welcome_hero h2 {
+            font-weight: 400;
+        }
+        .btn-wrapper{
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        button {
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 0px;
+            min-width: 180px;
+            border-radius: 60px;
+            font-size: 20px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        section#welcome_feature{
+            min-height: 750px;
+            background-color: var(--primary-color);
+            width:60%;
+            margin: 0 auto;
+            border-radius: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <section id="welcome_hero">
+        <div class="btn-wrapper">
+            <h1>Ich hab' da so einen Gedanken:</h1>
+            <div class="filter_end">
+                <button>Tags v</button>
+                <button>Filter v</button>   
+            </div>
+        </div>
+    </section>
+     <section id="welcome_feature" style="padding:10px;">
+        <div style="background-color: white; width: 95%; border-radius: 5px; margin: 0 auto; padding: 5px;">
+            <h1>
+                Some stupid thought i had about something
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quos impedit consectetur sequi quaerat magni vitae odit sapiente harum nulla, maxime ipsum veritatis dolorum amet soluta numquam tempore odio! Nobis cumque doloremque, quae accusamus eos ratione reprehenderit quaerat ab fugiat animi, molestias hic? Minima minus, nostrum iure consequatur architecto sed?
+            </p>
+        </div>
+
+        <div style="background-color: white; width: 95%; border-radius: 5px; margin: 5px auto; padding: 5px;">
+            <h1>
+                Some stupid thought i had about something new
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quos impedit consectetur sequi quaerat magni vitae odit sapiente harum nulla, maxime ipsum veritatis dolorum amet soluta numquam tempore odio! Nobis cumque doloremque, quae accusamus eos ratione reprehenderit quaerat ab fugiat animi, molestias hic? Minima minus, nostrum iure consequatur architecto sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, explicabo voluptas in similique mollitia aliquam ullam doloremque sint architecto ipsum ex expedita, quam, sed odit aut reiciendis. Excepturi reiciendis doloremque officia, nam eos deleniti repellendus ducimus cum voluptatum sequi esse magnam magni fuga deserunt, molestiae dicta consectetur nesciunt quas! Iure?
+            </p>
+        </div>
+        <!-- <div class="section_wrapper">
+            <div class="bla" style="display: flex; margin: auto; gap: 30px;">
+                {% for feature in featureContent %}
+                    {% include 'components/home/feature.twig' with feature %}
+                {% endfor %}
+            </div>
+        </div> -->
+    </section> 
+{% endblock %}

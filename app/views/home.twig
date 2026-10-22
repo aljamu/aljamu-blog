@@ -1,0 +1,156 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+    <style nonce="{{ csp_nonce }}">
+        #wrapper {
+            max-width: var(--max-width);
+            margin-top: 80px !important;
+            margin: auto;
+        }
+
+        #pinned_posts {
+            margin-top: 80px !important;
+            margin: auto;
+            height: 790px;
+            max-height: 790px;
+            background-color: lightblue;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            align-content: stretch;
+            gap: 24px;
+        }
+
+        #top_post {
+            flex-grow: 1;
+            background-color: red;
+        }
+
+        .pinned-posts-item-2{
+            flex-grow: 1;
+            display: inline-flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            align-content: stretch;
+            gap: 24px;
+        }
+
+        #aljamu {
+            background-color: green;
+            flex-grow: 1;
+        }
+        
+        .pinned-posts-item-2-2 {
+            background-color: green;
+            flex-grow: 1;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            align-content: stretch;
+            gap: 24px;
+
+        }
+
+        .item-1 {
+            flex-grow: 1;
+            background-color: yellow;
+        }
+        
+        .item-2 {
+            flex-grow: 1;
+            background-color: yellow;
+        }
+        
+        #filter-section {
+            height: 250px;
+            background-color: lightblue;
+        }
+
+        #posts-section {
+            height: 250px;
+            background-color: lightblue;
+            margin-top: 50px;
+        }
+
+
+        .card-base {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .card-image {
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .card-info {
+            position: absolute;
+            width: 100%;
+            height: 45%;
+            bottom: 0;
+            color: white;
+            background: var(--primary-color);
+            background: linear-gradient(0deg,rgba(57, 62, 65, 0.5) 90%, rgba(57, 62, 65, 0) 100%);
+        }
+
+        .card-info h1 {
+            font-size: xx-large;
+            margin-bottom: 10px;
+        }
+        .card-info p {
+            font-size: larger;
+            max-height: 65%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .read-more {
+            display: block;
+            text-align: end;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <section id="pinned_posts">
+            <div id="top_post" class="card-base">
+                <img class="card-image" src="img/Farmanimal.jpg" alt="Placeholder">
+                <div class="card-info" style="padding: 20px 20px 0px 20px; text-align: justify;">
+                    <h1>Hard to swallow Pills (gelantine free)</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quas officia nemo consectetur asperiores molestiae voluptatibus reiciendis, odio facere totam ullam ipsa debitis ad! Omnis delectus accusamus libero maiores asperiores consectetur vitae deserunt sunt recusandae fugiat odio molestias magni maxime possimus, similique error? Assumenda error placeat consequuntur non, quas iste voluptas praesentium tenetur dolores aspernatur? Eveniet placeat error atque voluptas omnis deleniti, iure suscipit. Aut, deleniti porro hic quaerat laudantium qui? Reiciendis assumenda at est perferendis dignissimos blanditiis fuga vitae necessitatibus illum nemo ipsa in obcaecati, non numquam ad! Voluptatibus veniam vero impedit tenetur veritatis enim eum saepe itaque minus?</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="card-base pinned-posts-item-2">
+                <div id="aljamu">Item 1</div>
+
+                <div class="pinned-posts-item-2-2">
+                    <div class="card-base item-1">
+                        <div class="card-info">text</div>
+                    </div>
+                    <div class="card-base item-2">
+                        <div class="card-info">text</div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+        <section id="filter-section">
+
+        </section>
+
+        <section id="posts-section">
+
+        </section>
+    </div>
+{% endblock %}

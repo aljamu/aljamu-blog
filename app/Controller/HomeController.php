@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\HomeModel;
 use App\Utils\Config;
 use flight\Engine;
 
@@ -14,11 +15,16 @@ use flight\Engine;
  */
 class HomeController
 {
-    /** @var Engine<object> */
-    private $app;
+    public $name = "home";
 
-    /** @var Config */
-    private $config;
+    private Engine $app;
+
+    private Config $config;
+
+    private object $content;
+
+    private HomeModel $homeModel;
+
 
     /**
      * @param Engine<object> $app
@@ -27,11 +33,14 @@ class HomeController
     {
         $this->app = $app;
         $this->config = $config;
+        $this->homeModel = new HomeModel();
+        // $this->content = $this->homeModel->getContent($this->name);
     }
 
     public function index(): void
     {
-        $this->app->render('welcome', [
+        // $featureContent = json_encode($this->content->feature);
+        $this->app->render('home', [
             'message' => 'You are gonna do great things!',
             'env' => $this->config->env(),
             'debug' => $this->config->isDebug(),
